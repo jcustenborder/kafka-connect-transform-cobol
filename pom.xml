@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright © 2017 Jeremy Custenborder (jcustenborder@gmail.com)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.jcustenborder.kafka.connect</groupId>
+        <artifactId>kafka-connect-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>kafka-connect-transform-cobol</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>kafka-connect-transform-cobol</name>
+    <url>https://github.com/jcustenborder/kafka-connect-transform-cobol</url>
+    <inceptionYear>2017</inceptionYear>
+    <developers>
+        <developer>
+            <name>Jeremy Custenborder</name>
+            <email>jeremy@confluent.io</email>
+            <url>https://github.com/jcustenborder</url>
+            <roles>
+                <role>maintainer</role>
+            </roles>
+        </developer>
+    </developers>
+    <prerequisites>
+        <maven>3.3.0</maven>
+    </prerequisites>
+    <scm>
+        <connection>scm:git:https://github.com/jcustenborder/kafka-connect-splunk.git</connection>
+        <developerConnection>scm:git:git@github.com:jcustenborder/kafka-connect-splunk.git</developerConnection>
+        <url>https://github.com/jcustenborder/kafka-connect-splunk</url>
+    </scm>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/jcustenborder/kafka-connect-splunk/issues</url>
+    </issueManagement>
+    <properties>
+        <jersey.version>1.19.1</jersey.version>
+        <jetty.version>9.3.10.v20160621</jetty.version>
+        <jackson.version>2.6.3</jackson.version>
+        <legstar.version>2.0.4</legstar.version>
+    </properties>
+    <dependencies>
+
+
+        <dependency>
+            <groupId>com.legsem.legstar</groupId>
+            <artifactId>legstar-base</artifactId>
+            <version>${legstar.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.legsem.legstar</groupId>
+            <artifactId>legstar-cob2xsd</artifactId>
+            <version>${legstar.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.legsem.legstar</groupId>
+            <artifactId>legstar-base-generator</artifactId>
+            <version>${legstar.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>connect-api</artifactId>
+            <version>0.10.2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.10</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jcustenborder.kafka.connect</groupId>
+            <artifactId>connect-utils-testing-data</artifactId>
+            <version>[0.2.33,0.2.1000)</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

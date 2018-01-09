@@ -1,0 +1,20 @@
+{
+  "input" : {
+    "javaTypeName" : "String",
+    "fieldIndex" : 3,
+    "cobolName" : "Filler-1",
+    "cobolTypeName" : "CobolStringType",
+    "charNum" : 15
+  },
+  "expected" : {
+    "type" : "STRING",
+    "parameters" : {
+      "javaTypeName" : "String",
+      "fieldIndex" : "3",
+      "cobolName" : "Filler-1",
+      "cobolTypeName" : "CobolStringType",
+      "charNum" : "15"
+    },
+    "isOptional" : true
+  }
+}

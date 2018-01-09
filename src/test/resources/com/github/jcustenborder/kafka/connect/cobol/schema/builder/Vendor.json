@@ -1,0 +1,114 @@
+{
+  "input" : "01 Ams-Vendor.\n  03 Brand               Pic x(3).\n  03 Vendor-Number       Pic 9(8).\n  03 Vendor-Name         Pic X(40).\n  03 Filler-1            Pic X(15).\n  03 Code-850            Pic 999.\n  03 Value-P             Pic X.\n  03 Filler              Pic X(3).\n  03 Zero-Value          Pic 999.",
+  "expected" : {
+    "name" : "com.github.jcustenborder.kafka.connect.cobol.AmsVendor",
+    "type" : "STRUCT",
+    "parameters" : {
+      "cobolName" : "Ams-Vendor",
+      "name" : "AmsVendor"
+    },
+    "isOptional" : false,
+    "fieldSchemas" : {
+      "brand" : {
+        "type" : "STRING",
+        "parameters" : {
+          "javaTypeName" : "String",
+          "fieldIndex" : "0",
+          "cobolName" : "Brand",
+          "cobolTypeName" : "CobolStringType",
+          "charNum" : "3"
+        },
+        "isOptional" : true
+      },
+      "vendorNumber" : {
+        "type" : "INT64",
+        "parameters" : {
+          "signSeparate" : "false",
+          "javaTypeName" : "Long",
+          "fieldIndex" : "1",
+          "cobolName" : "Vendor-Number",
+          "cobolTypeName" : "CobolZonedDecimalType",
+          "totalDigits" : "8",
+          "signLeading" : "false",
+          "signed" : "false",
+          "fractionDigits" : "0"
+        },
+        "isOptional" : true
+      },
+      "vendorName" : {
+        "type" : "STRING",
+        "parameters" : {
+          "javaTypeName" : "String",
+          "fieldIndex" : "2",
+          "cobolName" : "Vendor-Name",
+          "cobolTypeName" : "CobolStringType",
+          "charNum" : "40"
+        },
+        "isOptional" : true
+      },
+      "filler1" : {
+        "type" : "STRING",
+        "parameters" : {
+          "javaTypeName" : "String",
+          "fieldIndex" : "3",
+          "cobolName" : "Filler-1",
+          "cobolTypeName" : "CobolStringType",
+          "charNum" : "15"
+        },
+        "isOptional" : true
+      },
+      "code850" : {
+        "type" : "INT32",
+        "parameters" : {
+          "signSeparate" : "false",
+          "javaTypeName" : "Integer",
+          "fieldIndex" : "4",
+          "cobolName" : "Code-850",
+          "cobolTypeName" : "CobolZonedDecimalType",
+          "totalDigits" : "3",
+          "signLeading" : "false",
+          "signed" : "false",
+          "fractionDigits" : "0"
+        },
+        "isOptional" : true
+      },
+      "valueP" : {
+        "type" : "STRING",
+        "parameters" : {
+          "javaTypeName" : "String",
+          "fieldIndex" : "5",
+          "cobolName" : "Value-P",
+          "cobolTypeName" : "CobolStringType",
+          "charNum" : "1"
+        },
+        "isOptional" : true
+      },
+      "filler8" : {
+        "type" : "STRING",
+        "parameters" : {
+          "javaTypeName" : "String",
+          "fieldIndex" : "6",
+          "cobolName" : "Filler",
+          "cobolTypeName" : "CobolStringType",
+          "charNum" : "3"
+        },
+        "isOptional" : true
+      },
+      "zeroValue" : {
+        "type" : "INT32",
+        "parameters" : {
+          "signSeparate" : "false",
+          "javaTypeName" : "Integer",
+          "fieldIndex" : "7",
+          "cobolName" : "Zero-Value",
+          "cobolTypeName" : "CobolZonedDecimalType",
+          "totalDigits" : "3",
+          "signLeading" : "false",
+          "signed" : "false",
+          "fractionDigits" : "0"
+        },
+        "isOptional" : true
+      }
+    }
+  }
+}

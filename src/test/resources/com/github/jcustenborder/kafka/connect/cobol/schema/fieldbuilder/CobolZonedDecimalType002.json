@@ -1,0 +1,28 @@
+{
+  "input" : {
+    "signSeparate" : false,
+    "javaTypeName" : "Integer",
+    "fieldIndex" : 4,
+    "cobolName" : "Code-850",
+    "cobolTypeName" : "CobolZonedDecimalType",
+    "totalDigits" : 3,
+    "signLeading" : false,
+    "signed" : false,
+    "fractionDigits" : 0
+  },
+  "expected" : {
+    "type" : "INT32",
+    "parameters" : {
+      "signSeparate" : "false",
+      "javaTypeName" : "Integer",
+      "fieldIndex" : "4",
+      "cobolName" : "Code-850",
+      "cobolTypeName" : "CobolZonedDecimalType",
+      "totalDigits" : "3",
+      "signLeading" : "false",
+      "signed" : "false",
+      "fractionDigits" : "0"
+    },
+    "isOptional" : true
+  }
+}

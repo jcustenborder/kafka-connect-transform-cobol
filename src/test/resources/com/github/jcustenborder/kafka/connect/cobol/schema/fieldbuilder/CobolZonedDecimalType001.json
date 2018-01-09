@@ -1,0 +1,28 @@
+{
+  "input" : {
+    "signSeparate" : false,
+    "javaTypeName" : "Long",
+    "fieldIndex" : 1,
+    "cobolName" : "Vendor-Number",
+    "cobolTypeName" : "CobolZonedDecimalType",
+    "totalDigits" : 8,
+    "signLeading" : false,
+    "signed" : false,
+    "fractionDigits" : 0
+  },
+  "expected" : {
+    "type" : "INT64",
+    "parameters" : {
+      "signSeparate" : "false",
+      "javaTypeName" : "Long",
+      "fieldIndex" : "1",
+      "cobolName" : "Vendor-Number",
+      "cobolTypeName" : "CobolZonedDecimalType",
+      "totalDigits" : "8",
+      "signLeading" : "false",
+      "signed" : "false",
+      "fractionDigits" : "0"
+    },
+    "isOptional" : true
+  }
+}
