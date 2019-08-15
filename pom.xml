@@ -16,14 +16,15 @@
     limitations under the License.
 
 -->
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github.jcustenborder.kafka.connect</groupId>
         <artifactId>kafka-connect-parent</artifactId>
-        <version>1.0.0</version>
+        <version>2.2.1-cp1</version>
     </parent>
     <artifactId>kafka-connect-transform-cobol</artifactId>
     <version>0.1.0-SNAPSHOT</version>
@@ -44,13 +45,14 @@
         <maven>3.3.0</maven>
     </prerequisites>
     <scm>
-        <connection>scm:git:https://github.com/jcustenborder/kafka-connect-splunk.git</connection>
-        <developerConnection>scm:git:git@github.com:jcustenborder/kafka-connect-splunk.git</developerConnection>
-        <url>https://github.com/jcustenborder/kafka-connect-splunk</url>
+        <connection>scm:git:https://github.com/jcustenborder/kafka-connect-transform-cobol.git</connection>
+        <developerConnection>scm:git:git@github.com:jcustenborder/kafka-connect-transform-cobol.git
+        </developerConnection>
+        <url>https://github.com/jcustenborder/kafka-connect-transform-cobol</url>
     </scm>
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/jcustenborder/kafka-connect-splunk/issues</url>
+        <url>https://github.com/jcustenborder/kafka-connect-transform-cobol/issues</url>
     </issueManagement>
     <properties>
         <jersey.version>1.19.1</jersey.version>
@@ -59,8 +61,6 @@
         <legstar.version>2.0.4</legstar.version>
     </properties>
     <dependencies>
-
-
         <dependency>
             <groupId>com.legsem.legstar</groupId>
             <artifactId>legstar-base</artifactId>
@@ -93,24 +93,6 @@
                     <artifactId>slf4j-log4j12</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>connect-api</artifactId>
-            <version>0.10.2.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.reflections</groupId>
-            <artifactId>reflections</artifactId>
-            <version>0.9.10</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.jcustenborder.kafka.connect</groupId>
-            <artifactId>connect-utils-testing-data</artifactId>
-            <version>[0.2.33,0.2.1000)</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

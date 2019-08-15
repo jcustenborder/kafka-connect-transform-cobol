@@ -15,32 +15,24 @@
  */
 package com.github.jcustenborder.kafka.connect.cobol;
 
+import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
-import org.apache.kafka.connect.connector.ConnectRecord;
-import org.apache.kafka.connect.transforms.Transformation;
 
 import java.util.Map;
 
-public class FromCopybookTransformation implements Transformation {
-  CopybookTransformationConfig config;
+public abstract class CopybookConfig extends AbstractConfig {
+  public static final String COPYBOOK_CONF = "copybook";
+  static final String COPYBOOK_DOC = "";
 
-  @Override
-  public ConnectRecord apply(ConnectRecord connectRecord) {
-    return null;
+  public final String copybook;
+
+  public CopybookConfig(ConfigDef configDef, Map<String, ?> parsedConfig) {
+    super(configDef, parsedConfig);
+    this.copybook = this.getString(COPYBOOK_CONF);
   }
 
-  @Override
-  public ConfigDef config() {
-    return CopybookTransformationConfig.config();
-  }
-
-  @Override
-  public void close() {
-
-  }
-
-  @Override
-  public void configure(Map<String, ?> settings) {
-    this.config = new FromCopybookTransformationConfig(settings);
+  public static ConfigDef config() {
+    return new ConfigDef()
+        .define(COPYBOOK_CONF, ConfigDef.Type.STRING, ConfigDef.Importance.HIGH, COPYBOOK_DOC);
   }
 }

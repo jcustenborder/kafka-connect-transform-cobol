@@ -16,21 +16,17 @@
 package com.github.jcustenborder.kafka.connect.cobol;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.jcustenborder.kafka.connect.utils.data.NamedTest;
 import com.github.jcustenborder.kafka.connect.utils.data.TestDataUtils;
-import com.github.jcustenborder.kafka.connect.utils.jackson.ObjectMapperFactory;
 import com.google.common.collect.ImmutableMap;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -80,8 +76,8 @@ public class CopybookSchemaBuilderTest {
         "               03 Value-P             Pic X.\n" +
         "               03 Filler              Pic X(3).\n" +
         "               03 Zero-Value          Pic 999.";
-    Map<String, String> settings = ImmutableMap.of(FromCopybookTransformationConfig.COPYBOOK_CONF, input);
-    FromCopybookTransformationConfig config = new FromCopybookTransformationConfig(settings);
+    Map<String, String> settings = ImmutableMap.of(FromCopybookConfig.COPYBOOK_CONF, input);
+    FromCopybookConfig config = new FromCopybookConfig(settings);
     CopybookSchemaBuilder schemaBuilder = new CopybookSchemaBuilder(config);
 
     return testCases.stream().map(testCase -> dynamicTest(testCase.testName(), () -> {
@@ -115,8 +111,8 @@ public class CopybookSchemaBuilderTest {
     List<SchemaBuilderTestCase> testCases = TestDataUtils.loadJsonResourceFiles(this.getClass().getPackage().getName() + ".schema.builder", SchemaBuilderTestCase.class);
 
     return testCases.stream().map(testCase -> dynamicTest(testCase.testName(), () -> {
-      Map<String, String> settings = ImmutableMap.of(CopybookTransformationConfig.COPYBOOK_CONF, testCase.input);
-      FromCopybookTransformationConfig config = new FromCopybookTransformationConfig(settings);
+      Map<String, String> settings = ImmutableMap.of(CopybookConfig.COPYBOOK_CONF, testCase.input);
+      FromCopybookConfig config = new FromCopybookConfig(settings);
       CopybookSchemaBuilder schemaBuilder = new CopybookSchemaBuilder(config);
       Schema actual = schemaBuilder.build();
       assertSchema(testCase.expected, actual);
@@ -135,8 +131,8 @@ public class CopybookSchemaBuilderTest {
 //        "  03 Value-P             Pic X.\n" +
 //        "  03 Filler              Pic X(3).\n" +
 //        "  03 Zero-Value          Pic 999.";
-//    Map<String, String> settings = ImmutableMap.of(FromCopybookTransformationConfig.COPYBOOK_CONF, testCase.input);
-//    FromCopybookTransformationConfig config = new FromCopybookTransformationConfig(settings);
+//    Map<String, String> settings = ImmutableMap.of(FromCopybookConfig.COPYBOOK_CONF, testCase.input);
+//    FromCopybookConfig config = new FromCopybookConfig(settings);
 //    CopybookSchemaBuilder schemaBuilder = new CopybookSchemaBuilder(config);
 //    testCase.expected = schemaBuilder.build();
 //

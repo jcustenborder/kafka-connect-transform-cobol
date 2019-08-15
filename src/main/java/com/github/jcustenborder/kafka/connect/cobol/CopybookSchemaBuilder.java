@@ -40,10 +40,10 @@ import java.util.Properties;
 class CopybookSchemaBuilder {
   private static final Logger log = LoggerFactory.getLogger(CopybookSchemaBuilder.class);
   final Map<String, Schema> schemas = new HashMap<>();
-  final FromCopybookTransformationConfig config;
+  final FromCopybookConfig config;
 
 
-  public CopybookSchemaBuilder(FromCopybookTransformationConfig config) {
+  public CopybookSchemaBuilder(FromCopybookConfig config) {
     this.config = config;
   }
 

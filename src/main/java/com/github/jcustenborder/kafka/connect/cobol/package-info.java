@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+@Introduction("This plugin contains transformations that are used to move data from Cobol copybooks to " +
+    "Kafka Connect Structures.")
+@Title("Cobol Copybook Transformations")
+@PluginOwner("jcustenborder")
+@PluginName("kafka-connect-transform-cobol")
 package com.github.jcustenborder.kafka.connect.cobol;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class FromCopybookTransformationTest {
-  private static final Logger log = LoggerFactory.getLogger(FromCopybookTransformationTest.class);
-
-}
+import com.github.jcustenborder.kafka.connect.utils.config.Introduction;
+import com.github.jcustenborder.kafka.connect.utils.config.PluginName;
+import com.github.jcustenborder.kafka.connect.utils.config.PluginOwner;
+import com.github.jcustenborder.kafka.connect.utils.config.Title;

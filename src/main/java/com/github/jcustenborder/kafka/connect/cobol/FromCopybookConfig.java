@@ -19,19 +19,19 @@ import org.apache.kafka.common.config.ConfigDef;
 
 import java.util.Map;
 
-public class FromCopybookTransformationConfig extends CopybookTransformationConfig {
+public class FromCopybookConfig extends CopybookConfig {
   public static final String NAMESPACE_CONFIG = "namespace";
   public static final String NAMESPACE_DOC = "Namespace for the generated schemas";
 
   public final String namespace;
 
-  public FromCopybookTransformationConfig(Map<String, ?> settings) {
+  public FromCopybookConfig(Map<String, ?> settings) {
     super(config(), settings);
     this.namespace = this.getString(NAMESPACE_CONFIG);
   }
 
   public static ConfigDef config() {
-    return CopybookTransformationConfig.config()
-        .define(NAMESPACE_CONFIG, ConfigDef.Type.STRING, FromCopybookTransformationConfig.class.getPackage().getName(), ConfigDef.Importance.HIGH, NAMESPACE_DOC);
+    return CopybookConfig.config()
+        .define(NAMESPACE_CONFIG, ConfigDef.Type.STRING, FromCopybookConfig.class.getPackage().getName(), ConfigDef.Importance.HIGH, NAMESPACE_DOC);
   }
 }

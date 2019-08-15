@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 class Cob2SchemaAndValueConverter extends AbstractCob2ObjectConverter<SchemaAndValue> {
   private static final Logger log = LoggerFactory.getLogger(Cob2SchemaAndValueConverter.class);
   final Schema schema;
-  final FromCopybookTransformationConfig config;
+  final FromCopybookConfig config;
 
   private Cob2SchemaAndValueConverter(Builder builder) {
     super(builder);
@@ -56,9 +56,9 @@ class Cob2SchemaAndValueConverter extends AbstractCob2ObjectConverter<SchemaAndV
   }
 
   public static class Builder extends AbstractCob2ObjectConverter.Builder<SchemaAndValue, Builder> {
-    final FromCopybookTransformationConfig config;
+    final FromCopybookConfig config;
 
-    public Builder(FromCopybookTransformationConfig config) {
+    public Builder(FromCopybookConfig config) {
       this.config = config;
     }
 
