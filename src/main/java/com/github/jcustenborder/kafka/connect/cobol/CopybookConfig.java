@@ -26,7 +26,7 @@ import java.util.Map;
 
 public abstract class CopybookConfig extends AbstractConfig {
   public static final String COPYBOOK_CONF = "cobol.copybook";
-  static final String COPYBOOK_DOC = "";
+  static final String COPYBOOK_DOC = "The text of the Cobol copybook structure inline as a string.";
 
   public static final String CONTEXT_TYPE_CONF = "cobol.context.type";
   static final String CONTEXT_TYPE_DOC = "The type of Cobol context to create. This is used to " +
