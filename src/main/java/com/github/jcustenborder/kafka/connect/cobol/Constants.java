@@ -15,11 +15,9 @@
  */
 package com.github.jcustenborder.kafka.connect.cobol;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+class Constants {
 
-public class FromCopybookTest {
-  private static final Logger log = LoggerFactory.getLogger(FromCopybookTest.class);
-
+  public static final String COBOL_NAME = "copybook.name";
+  public static final String COBOL_SOURCE_LINE = "copybook.source.line";
 
 }

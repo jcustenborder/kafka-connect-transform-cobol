@@ -13,13 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@Introduction("This plugin contains transformations that are used to move data from Cobol copybooks to " +
-    "Kafka Connect Structures.")
+@Introduction("The plugin contains transformations that are used to read binary data that is encoded as a " +
+    "Cobol copybook to structured data that is native Kafka Connect. For example this functionality could " +
+    "be used to convert data from Cobol copybooks to JSON or Avro when utilizing the proper Converter.")
 @Title("Cobol Copybook Transformations")
 @PluginOwner("jcustenborder")
 @PluginName("kafka-connect-transform-cobol")
+@DocumentationWarning("This project is still in an experimental phase.")
+@DocumentationImportant("This project needs data for unit testing. Any copybook " +
+    "definitions with corresponding example data will greatly aid the overall quality of this " +
+    "project. If you can provide some example(s) please open an issue.")
 package com.github.jcustenborder.kafka.connect.cobol;
 
+import com.github.jcustenborder.kafka.connect.utils.config.DocumentationImportant;
+import com.github.jcustenborder.kafka.connect.utils.config.DocumentationWarning;
 import com.github.jcustenborder.kafka.connect.utils.config.Introduction;
 import com.github.jcustenborder.kafka.connect.utils.config.PluginName;
 import com.github.jcustenborder.kafka.connect.utils.config.PluginOwner;

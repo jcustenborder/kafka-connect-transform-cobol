@@ -7,7 +7,7 @@
       "cobolName" : "Ams-Vendor",
       "name" : "AmsVendor"
     },
-    "isOptional" : false,
+    "isOptional" : true,
     "fieldSchemas" : {
       "brand" : {
         "type" : "STRING",

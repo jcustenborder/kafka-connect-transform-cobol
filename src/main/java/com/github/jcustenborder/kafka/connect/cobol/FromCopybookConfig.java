@@ -15,11 +15,12 @@
  */
 package com.github.jcustenborder.kafka.connect.cobol;
 
+import com.github.jcustenborder.kafka.connect.utils.config.ConfigKeyBuilder;
 import org.apache.kafka.common.config.ConfigDef;
 
 import java.util.Map;
 
-public class FromCopybookConfig extends CopybookConfig {
+class FromCopybookConfig extends CopybookConfig {
   public static final String NAMESPACE_CONFIG = "namespace";
   public static final String NAMESPACE_DOC = "Namespace for the generated schemas";
 
@@ -32,6 +33,12 @@ public class FromCopybookConfig extends CopybookConfig {
 
   public static ConfigDef config() {
     return CopybookConfig.config()
-        .define(NAMESPACE_CONFIG, ConfigDef.Type.STRING, FromCopybookConfig.class.getPackage().getName(), ConfigDef.Importance.HIGH, NAMESPACE_DOC);
+        .define(
+            ConfigKeyBuilder.of(NAMESPACE_CONFIG, ConfigDef.Type.STRING)
+                .defaultValue(FromCopybookConfig.class.getPackage().getName())
+                .importance(ConfigDef.Importance.HIGH)
+                .documentation(NAMESPACE_DOC)
+                .build()
+        );
   }
 }

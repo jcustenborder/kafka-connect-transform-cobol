@@ -18,8 +18,7 @@ package com.github.jcustenborder.kafka.connect.cobol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class FromCopybookTest {
-  private static final Logger log = LoggerFactory.getLogger(FromCopybookTest.class);
-
+public class CopybookLoaderTest {
+  private static final Logger log = LoggerFactory.getLogger(CopybookLoaderTest.class);
 
 }

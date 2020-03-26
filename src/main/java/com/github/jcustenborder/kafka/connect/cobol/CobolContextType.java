@@ -15,11 +15,11 @@
  */
 package com.github.jcustenborder.kafka.connect.cobol;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.github.jcustenborder.kafka.connect.utils.config.Description;
 
-public class FromCopybookTest {
-  private static final Logger log = LoggerFactory.getLogger(FromCopybookTest.class);
-
-
+enum CobolContextType {
+  @Description("An EBCDIC based context will be used for data encoding.")
+  Ebcdic,
+  @Description("An ASCII based context will be used for data encoding.")
+  Ascii
 }

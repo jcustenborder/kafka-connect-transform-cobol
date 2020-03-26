@@ -62,7 +62,6 @@ public class CopybookSchemaBuilderTest {
     }
   }
 
-
   @TestFactory
   public Stream<DynamicTest> fieldBuilder() throws IOException {
     List<FieldBuilderTestCase> testCases = TestDataUtils.loadJsonResourceFiles(this.getClass().getPackage().getName() + ".schema.fieldbuilder", FieldBuilderTestCase.class);
@@ -81,7 +80,8 @@ public class CopybookSchemaBuilderTest {
     CopybookSchemaBuilder schemaBuilder = new CopybookSchemaBuilder(config);
 
     return testCases.stream().map(testCase -> dynamicTest(testCase.testName(), () -> {
-      SchemaBuilder builder = schemaBuilder.fieldBuilder(testCase.input);
+      CopybookSchemaBuilder.CobolField field = new CopybookSchemaBuilder.CobolField("test", testCase.input);
+      SchemaBuilder builder = schemaBuilder.fieldBuilder(field);
       assertNotNull(builder, "builder should not be null.");
       Schema actual = builder.build();
       assertSchema(testCase.expected, actual);
@@ -118,27 +118,4 @@ public class CopybookSchemaBuilderTest {
       assertSchema(testCase.expected, actual);
     }));
   }
-
-//  @Test
-//  public void foo() throws IOException {
-//    SchemaBuilderTestCase testCase = new SchemaBuilderTestCase();
-//    testCase.input = "01 Ams-Vendor.\n" +
-//        "  03 Brand               Pic x(3).\n" +
-//        "  03 Vendor-Number       Pic 9(8).\n" +
-//        "  03 Vendor-Name         Pic X(40).\n" +
-//        "  03 Filler-1            Pic X(15).\n" +
-//        "  03 Code-850            Pic 999.\n" +
-//        "  03 Value-P             Pic X.\n" +
-//        "  03 Filler              Pic X(3).\n" +
-//        "  03 Zero-Value          Pic 999.";
-//    Map<String, String> settings = ImmutableMap.of(FromCopybookConfig.COPYBOOK_CONF, testCase.input);
-//    FromCopybookConfig config = new FromCopybookConfig(settings);
-//    CopybookSchemaBuilder schemaBuilder = new CopybookSchemaBuilder(config);
-//    testCase.expected = schemaBuilder.build();
-//
-//    ObjectMapperFactory.INSTANCE.configure(SerializationFeature.INDENT_OUTPUT, true);
-//    ObjectMapperFactory.INSTANCE.writeValue(new File("/Users/jeremy/source/opensource/kafka-connect/transforms/kafka-connect-transform-cobol/src/test/resources/com/github/jcustenborder/kafka/connect/cobol/schema/builder/Vendor.json"), testCase);
-//
-//  }
-
 }
