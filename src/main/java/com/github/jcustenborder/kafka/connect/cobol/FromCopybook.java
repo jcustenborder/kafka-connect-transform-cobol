@@ -115,6 +115,13 @@ public class FromCopybook<R extends ConnectRecord<R>> extends BaseKeyValueTransf
     return new SchemaAndValue(struct.schema(), struct);
   }
 
+  @Override
+  protected SchemaAndValue processString(R record, Schema inputSchema, String text) {
+    byte[] bytes = text.getBytes(this.config.charset);
+    return processBytes(record, Schema.BYTES_SCHEMA, bytes);
+  }
+
+
   public static class Key extends FromCopybook {
     public Key() {
       super(true);

@@ -31,7 +31,7 @@ This transformation expects that the incoming data will be formatted as BYTES.
 
 ##### `cobol.copybook`
 
-
+The text of the Cobol copybook structure inline as a string.
 
 *Importance:* HIGH
 

@@ -16,19 +16,26 @@
 package com.github.jcustenborder.kafka.connect.cobol;
 
 import com.github.jcustenborder.kafka.connect.utils.config.ConfigKeyBuilder;
+import com.github.jcustenborder.kafka.connect.utils.config.ConfigUtils;
+import com.github.jcustenborder.kafka.connect.utils.config.validators.Validators;
 import org.apache.kafka.common.config.ConfigDef;
 
+import java.nio.charset.Charset;
 import java.util.Map;
 
 class FromCopybookConfig extends CopybookConfig {
   public static final String NAMESPACE_CONFIG = "namespace";
   public static final String NAMESPACE_DOC = "Namespace for the generated schemas";
+  public static final String CHARSET_CONFIG = "charset";
+  public static final String CHARSET_DOC = "The charset to use when the copybook data is written as a String.";
 
   public final String namespace;
+  public final Charset charset;
 
   public FromCopybookConfig(Map<String, ?> settings) {
     super(config(), settings);
     this.namespace = this.getString(NAMESPACE_CONFIG);
+    this.charset = ConfigUtils.charset(this, CHARSET_CONFIG);
   }
 
   public static ConfigDef config() {
@@ -38,6 +45,13 @@ class FromCopybookConfig extends CopybookConfig {
                 .defaultValue(FromCopybookConfig.class.getPackage().getName())
                 .importance(ConfigDef.Importance.HIGH)
                 .documentation(NAMESPACE_DOC)
+                .build()
+        ).define(
+            ConfigKeyBuilder.of(CHARSET_CONFIG, ConfigDef.Type.STRING)
+                .defaultValue("UTF-8")
+                .importance(ConfigDef.Importance.HIGH)
+                .validator(Validators.validCharset())
+                .documentation(CHARSET_DOC)
                 .build()
         );
   }
