@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright © 2017 Jeremy Custenborder (jcustenborder@gmail.com)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.jcustenborder.kafka.connect</groupId>
+        <artifactId>kafka-connect-parent</artifactId>
+        <version>2.4.0</version>
+    </parent>
+    <description>This project provides a to convert Cobol copybooks to other formats supported by Kafka Connect.</description>
+    <artifactId>kafka-connect-transform-cobol</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>kafka-connect-transform-cobol</name>
+    <url>https://github.com/jcustenborder/kafka-connect-transform-cobol</url>
+    <inceptionYear>2017</inceptionYear>
+    <developers>
+        <developer>
+            <name>Jeremy Custenborder</name>
+            <email>jeremy@confluent.io</email>
+            <url>https://github.com/jcustenborder</url>
+            <roles>
+                <role>maintainer</role>
+            </roles>
+        </developer>
+    </developers>
+    <prerequisites>
+        <maven>3.3.0</maven>
+    </prerequisites>
+    <scm>
+        <connection>scm:git:https://github.com/jcustenborder/kafka-connect-transform-cobol.git</connection>
+        <developerConnection>scm:git:git@github.com:jcustenborder/kafka-connect-transform-cobol.git</developerConnection>
+        <url>https://github.com/jcustenborder/kafka-connect-transform-cobol</url>
+    </scm>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/jcustenborder/kafka-connect-transform-cobol/issues</url>
+    </issueManagement>
+    <properties>
+        <legstar.version>2.0.4</legstar.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.legsem.legstar</groupId>
+            <artifactId>legstar-base</artifactId>
+            <version>${legstar.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.legsem.legstar</groupId>
+            <artifactId>legstar-cob2xsd</artifactId>
+            <version>${legstar.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.legsem.legstar</groupId>
+            <artifactId>legstar-base-generator</artifactId>
+            <version>${legstar.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>connect-json</artifactId>
+            <version>${kafka.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-connect-maven-plugin</artifactId>
+                <configuration>
+                    <confluentControlCenterIntegration>true</confluentControlCenterIntegration>
+                    <documentationUrl>https://jcustenborder.github.io/kafka-connect-documentation/projects/${project.artifactId}</documentationUrl>
+                    <componentTypes>
+                        <componentType>transform</componentType>
+                        <componentType>converter</componentType>
+                    </componentTypes>
+                    <tags>
+                        <tag>Transform</tag>
+                        <tag>Cobol</tag>
+                        <tag>CopyBook</tag>
+                    </tags>
+                    <title>Kafka Connect Cobol Transformations</title>
+                    <supportUrl>${pom.issueManagement.url}</supportUrl>
+                    <supportSummary>Support provided through community involvement.</supportSummary>
+                    <excludes>
+                        <exclude>org.reflections:reflections</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

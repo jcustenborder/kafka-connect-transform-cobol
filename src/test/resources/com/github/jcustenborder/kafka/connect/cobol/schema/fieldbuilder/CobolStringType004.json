@@ -1,0 +1,20 @@
+{
+  "input" : {
+    "javaTypeName" : "String",
+    "fieldIndex" : 5,
+    "cobolName" : "Value-P",
+    "cobolTypeName" : "CobolStringType",
+    "charNum" : 1
+  },
+  "expected" : {
+    "type" : "STRING",
+    "parameters" : {
+      "javaTypeName" : "String",
+      "fieldIndex" : "5",
+      "cobolName" : "Value-P",
+      "cobolTypeName" : "CobolStringType",
+      "charNum" : "1"
+    },
+    "isOptional" : true
+  }
+}
