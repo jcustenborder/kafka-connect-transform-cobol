@@ -1,0 +1,22 @@
+{
+  "input": {
+    "topic": "test",
+    "kafkaPartition": 1,
+    "valueSchema": {
+      "type": "STRING",
+      "isOptional": false
+    },
+    "value": "ABCDEFGH",
+    "timestampType": "NO_TIMESTAMP_TYPE",
+    "offset": 1574310211719,
+    "headers": []
+  },
+  "name": "Simple",
+  "title": "Simple transformation",
+  "description": "This example takes a simple copy book and converts the incoming string data based on it.",
+  "config": {
+    "cobol.context.type":"Ascii",
+    "cobol.copybook": "01 AWL-RECORD-SPAD.  05  DUMMY-SERIAL-NO-AWL                   PIC X(8)."
+  },
+  "childClass": "Value"
+}
